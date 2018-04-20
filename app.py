@@ -29,5 +29,12 @@ def translate(w):
 
 word = input("Enter word: ")
 
+output = translate(word)
+count = 0
 
-print(translate(word))
+if type(output) == list:
+    for item in output:
+        count += 1
+        print(str(count) + ". " + item)
+else:
+    print(output)
