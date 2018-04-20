@@ -7,10 +7,13 @@ data = json.load(open("data.json"))
 def translate(w):
 
     w = w.lower()
-
+    p = ''.join((c.upper() if i == 0 or w[i-1] == ' ' else c) for i, c in enumerate(w))
     if w in data:
+        print(w)
         return data[w]
-
+    elif p in data:
+        print(p)
+        return data[p]
     elif len(get_close_matches(w, data.keys())) > 0:
         confirm = input("Did you mean to type %s? Enter Y or N" % get_close_matches(w, data.keys())[0])
 
